@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-flask
+  labels:
+    name: helloworld-flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: helloworld-flask
+  template:
+    metadata:
+      name: helloworld-flask
+      labels:
+        name: helloworld-flask
+    spec:
+      containers:
+        - name: helloworld-flask
+          image: vigneshsweekaran/helloworld-flask:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          # Define container environment variables with only one data from ConfigMap or
+          # We want to rename the Environment variable name or
+          # We want to read data from multiple configmaps 
+          env:
+            - name: ENVIRONMENT_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: helloworld-flask
+                  key: environment-name
+          # Configure all key-value pairs in a ConfigMap as container environment variables
+          # envFrom:
+          #   - configMapRef:
+          #       name: helloworld-flask
+

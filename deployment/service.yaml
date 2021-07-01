@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: easyclaim-backend
+  labels:
+    name: easyclaim-backend
+spec:
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 32005
+  selector:
+    name: easyclaim-backend
+  type: NodePort

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-flask
+  labels:
+    name: helloworld-flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: helloworld-flask
+  template:
+    metadata:
+      name: helloworld-flask
+      labels:
+        name: helloworld-flask
+    spec:
+      containers:
+        - name: helloworld-flask
+          image: vigneshsweekaran/helloworld-flask:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+          - name: config-volume
+            mountPath: "/config"
+      volumes:
+        # To define only one key from configmap as volume or
+        # If we want to rename the file name
+        - name: config-volume
+          configMap:
+            name: helloworld-flask
+            items:
+            - key: environment-name
+              path: environment-name
+        # Define all key from configmap as volume
+        # - name: config-volume
+        #   configMap:
+        #     name: helloworld-flask
+          
