@@ -2,10 +2,10 @@ from flask import Flask
 import os
 
 app = Flask(__name__)
-env_name = os.getenv("ENVIRONMENT_NAME", "default")
 
 @app.route("/")
 def hello():
+    env_name = os.getenv("ENVIRONMENT_NAME", "default")
     return "Hello " + env_name + " environment"
 
 if __name__ == "__main__":
