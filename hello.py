@@ -2,7 +2,7 @@ from flask import Flask
 import os
 
 app = Flask(__name__)
-env_name = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
+env_name = os.getenv("ENVIRONMENT_NAME", "default")
 
 @app.route("/")
 def hello():
