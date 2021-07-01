@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     if os.path.isfile('/config/environment-name'):
-        file1 = open("/config/environment-name", "r+")
+        file1 = open("/config/environment-name", "r")
         env_name = file1.read()
     else:
         env_name = os.getenv("ENVIRONMENT_NAME", "default")
