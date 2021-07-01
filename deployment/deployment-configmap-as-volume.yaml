@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: helloworld-flask
-          image: vigneshsweekaran/helloworld-flask:latest
+          image: vigneshsweekaran/helloworld-flask:latest-arm64
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
