@@ -26,7 +26,7 @@ def hello():
         env_name = os.getenv("ENVIRONMENT_NAME", "default")
 
     print(color)
-    contents = "Hello " + env_name + " Environment !!"
+    contents = "Environment Name : " + env_name
     return render_template('hello.html', name=socket.gethostname(), contents=contents, color=color_codes[color])
 
 @app.route('/color/<new_color>')
