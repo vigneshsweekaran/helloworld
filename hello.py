@@ -4,6 +4,11 @@ import os.path
 import turtle
 
 app = Flask(__name__)
+
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
+
 turtle.Screen().bgcolor("orange")
 turtle.forward(100)
 
