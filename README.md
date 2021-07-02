@@ -25,7 +25,7 @@ docker run -d -e APP_COLOR=red -p 8081:5000 flaskapp
 
 ### If you dont want to build docker image and you want to directly run the application
 ```
-docker run -d -e APP_COLOR=red -p 8081:5000 vigneshsweekaran/helloworld-flask:latest
+docker run -d -e APP_COLOR=red -p 8081:5000 vigneshsweekaran/helloworld-flask:latest-arm64
 ```
 
 ### Branch details
