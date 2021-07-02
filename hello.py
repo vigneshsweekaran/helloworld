@@ -34,7 +34,7 @@ def hello():
 def new_color(new_color):
     return render_template('hello.html', name=socket.gethostname(), color=color_codes[new_color])
 
-@app.route('/read_file')
+@app.route('/read-file')
 def read_file():
     if os.path.isfile('/config/environment-name'):
         f = open("/config/environment-name")
