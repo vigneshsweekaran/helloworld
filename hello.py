@@ -16,10 +16,9 @@ color_codes = {
     "darkblue": "#130f40"
 }
 
-color = os.environ.get('APP_COLOR') or random.choice(["red","green","blue","blue2","darkblue","pink"])
-
 @app.route("/")
 def hello():
+    color = os.environ.get('APP_COLOR') or random.choice(["red","green","blue","blue2","darkblue","pink"])
     if os.path.isfile('/config/environment-name'):
         file1 = open("/config/environment-name", "r")
         env_name = file1.read()
@@ -36,6 +35,7 @@ def new_color(new_color):
 
 @app.route('/read-file')
 def read_file():
+    color = os.environ.get('APP_COLOR') or random.choice(["red","green","blue","blue2","darkblue","pink"])
     if os.path.isfile('/config/environment-name'):
         f = open("/config/environment-name")
         contents = f.read()
