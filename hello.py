@@ -1,17 +1,14 @@
 from flask import Flask
 import os
 import os.path
-from tkinter import *
+import turtle
 
 app = Flask(__name__)
-gui = Tk(className='Python Examples - Window Color')
+turtle.Screen().bgcolor("orange")
+turtle.forward(100)
 
 @app.route("/")
 def hello():
-    gui.geometry("400x200")
-    gui.configure(bg='blue')
-    gui.mainloop()
-
     if os.path.isfile('/config/environment-name'):
         file1 = open("/config/environment-name", "r")
         env_name = file1.read()
